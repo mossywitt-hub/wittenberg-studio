@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" href="/favicon.ico">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>wittenberg.studio — Handmade Woodturning &amp; Bespoke Judaica, London</title>
+<meta name="description" content="Bespoke handturned wooden commissions for weddings and celebrations. Specialising in judaica — mezuzot, seder plates, kiddush cups, and more. Based in Tottenham, London.">
+<meta property="og:title" content="wittenberg.studio — Handmade Woodturning & Bespoke Judaica">
+<meta property="og:description" content="Bespoke handturned wooden commissions for weddings and celebrations. Specialising in judaica — mezuzot, seder plates, kiddush cups, and more.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wittenberg.studio">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:     #1e1c19;
+  --fg:     #e6e2db;
+  --mid:    #b0a99f;
+  --dim:    #62605c;
+  --accent: #8fa882;
+  --rule:   rgba(230,226,219,0.07);
+  --max:    960px;
+  --pad:    clamp(20px, 5vw, 48px);
+}
+
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'DM Mono', monospace;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+nav {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 28px var(--pad);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wordmark {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-loc {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--dim);
+}
+
+.nav-link {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--dim);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-link:hover { color: var(--fg); }
+
+.header {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: minmax(200px, 28%) 1fr;
+  height: clamp(260px, 45vw, 520px);
+}
+
+.header__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(24px, 3vw, 44px) var(--pad);
+  border-right: 1px solid var(--rule);
+}
+
+.header__eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.header__title {
+  font-size: clamp(22px, 3.5vw, 42px);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+}
+
+.header__right { overflow: hidden; }
+
+.header__right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 40% center;
+  display: block;
+}
+
+.content {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 32px;
+  padding: 52px 0;
+  border-top: 1px solid var(--rule);
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.section__label {
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dim);
+  padding-top: 3px;
+}
+
+.about__text {
+  font-size: 13px;
+  line-height: 2;
+  color: var(--mid);
+}
+
+.about__text a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.about__text a:hover { color: var(--fg); }
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+
+.work-grid__item {
+  overflow: hidden;
+  aspect-ratio: 1;
+}
+
+.work-grid__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.75);
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.work-grid__item:hover img {
+  filter: saturate(1.0);
+  transform: scale(1.03);
+}
+
+/* commissions */
+.commissions__text {
+  font-size: 13px;
+  line-height: 2;
+  color: var(--mid);
+  margin-bottom: 20px;
+}
+
+.commissions__text:last-of-type {
+  margin-bottom: 32px;
+}
+
+.commissions__text em {
+  font-style: italic;
+  color: var(--fg);
+}
+
+.commissions__text a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.commissions__text a:hover { color: var(--fg); }
+
+.commissions__gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  max-width: 520px;
+}
+
+.commissions__gallery-item {
+  overflow: hidden;
+  aspect-ratio: 1;
+}
+
+.commissions__gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.75);
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.commissions__gallery-item:hover img {
+  filter: saturate(1.0);
+  transform: scale(1.03);
+}
+
+/* contact form */
+.contact-form {
+  max-width: 520px;
+}
+
+.contact-form__group {
+  margin-bottom: 20px;
+}
+
+.contact-form__label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 8px;
+}
+
+.contact-form__input,
+.contact-form__textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--dim);
+  color: var(--fg);
+  font-family: 'DM Mono', monospace;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 1.65;
+  padding: 10px 0;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.contact-form__input:focus,
+.contact-form__textarea:focus {
+  border-bottom-color: var(--accent);
+}
+
+.contact-form__input::placeholder,
+.contact-form__textarea::placeholder {
+  color: var(--dim);
+  opacity: 0.5;
+}
+
+.contact-form__textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.contact-form__submit {
+  margin-top: 8px;
+  background: transparent;
+  border: 1px solid var(--dim);
+  color: var(--fg);
+  font-family: 'DM Mono', monospace;
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 12px 32px;
+  cursor: pointer;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.contact-form__submit:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.contact-form__success {
+  display: none;
+  font-size: 13px;
+  line-height: 2;
+  color: var(--accent);
+  padding: 20px 0;
+}
+
+footer {
+  border-top: 1px solid var(--rule);
+  padding: 24px var(--pad);
+  display: flex;
+  justify-content: space-between;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+footer span {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--dim);
+}
+
+@media (max-width: 600px) {
+  .header {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 56vw;
+    height: auto;
+  }
+  .header__left {
+    border-right: none;
+    border-bottom: 1px solid var(--rule);
+    padding: 28px var(--pad);
+  }
+  .section {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 36px 0;
+  }
+  .work-grid { grid-template-columns: 1fr 1fr; }
+  .commissions__gallery { grid-template-columns: 1fr 1fr; }
+  .nav-links { gap: 16px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="wordmark" href="/">wittenberg.studio</a>
+  <div class="nav-links">
+    <a class="nav-link" href="#commissions">commissions</a>
+    <a class="nav-link" href="#contact">contact</a>
+    <span class="nav-loc">n15 · london</span>
+  </div>
+</nav>
+
+<header class="header">
+  <div class="header__left">
+    <p class="header__eyebrow">// woodwork</p>
+    <h1 class="header__title">micro-studio<br>turnings.</h1>
+  </div>
+  <div class="header__right">
+    <img src="images/Illustration.png" alt="Woodturning micro-studio in Tottenham, North London">
+  </div>
+</header>
+
+<main class="content">
+
+  <div class="section">
+    <h2 class="section__label">About</h2>
+    <p class="about__text">I've been turning as a hobby for twenty years — my first lathe was a barmitzvah gift from my grandfather. I now work in the micro-studio I designed and built in my garden in Tottenham. My favourite pieces are simple, tactile, and built around imperfections in the wood: burrs, bark, water stains. I offer <b><a href="#commissions">commissions</a></b> for gifts and special occasions.</p>
+  </div>
+
+  <div class="section">
+    <h2 class="section__label">Work</h2>
+    <div class="work-grid">
+      <div class="work-grid__item"><img src="images/Yew bowl.png" alt="Handturned yew bowl"></div>
+      <div class="work-grid__item"><img src="images/Platter.png" alt="Handturned burr oak platter"></div>
+      <div class="work-grid__item"><img src="images/Burnt box.png" alt="Handturned wooden box with char marks"></div>
+      <div class="work-grid__item"><img src="images/Box.png" alt="Bespoke wooden box from waterlogged punting pole"></div>
+      <div class="work-grid__item"><img src="images/Pair.png" alt="Pair of handturned burr bowls"></div>
+      <div class="work-grid__item"><img src="images/Hole bowl.png" alt="Handturned wooden bowl with natural hole"></div>
+      <div class="work-grid__item"><img src="images/Mezuza 2.png" alt="Bespoke handmade mezuzah in oak and ebony"></div>
+      <div class="work-grid__item"><img src="images/Spring_lamp.jpg" alt="Handturned wooden spring bulb lamp"></div>
+      <div class="work-grid__item"><img src="images/Omer_mezuza.jpg" alt="Bespoke handmade mezuzah in boxwood"></div>
+    </div>
+  </div>
+
+  <div class="section" id="commissions">
+    <h2 class="section__label">Commissions</h2>
+    <div>
+      <p class="commissions__text">I take commissions for gifts such as ring boxes, kitchenware, and decorative pieces.</p>
+      <p class="commissions__text">I specialise in judaica — mezuzot, seder plates, etrog and kiddush cup boxes, etz chaim for sifrei torah, and so on. I'm one of very few woodturners outside Israel making these on a bespoke basis.</p>
+      <p class="commissions__text">Commissions start at £150 with a lead time of 4 weeks (if you've left it late for a gift I <em>might</em> be able to expedite. Ask!). Fill out the <a href="#contact">form below</a> and I'll be in touch to begin the design process together.</p>
+      <div class="commissions__gallery">
+        <div class="commissions__gallery-item"><img src="images/Mezuza.png" alt="Bespoke handmade mezuzah in holly — commission example"></div>
+        <div class="commissions__gallery-item"><img src="images/Ring box.png" alt="Handturned wooden ring box — wedding commission"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="contact">
+    <h2 class="section__label">Contact</h2>
+    <div>
+      <form class="contact-form" id="contact-form" action="https://formspree.io/f/mnjlqnez" method="POST">
+        <div class="contact-form__group">
+          <label class="contact-form__label" for="name">Name</label>
+          <input class="contact-form__input" type="text" id="name" name="name" required>
+        </div>
+        <div class="contact-form__group">
+          <label class="contact-form__label" for="email">Email</label>
+          <input class="contact-form__input" type="email" id="email" name="email" required>
+        </div>
+        <div class="contact-form__group">
+          <label class="contact-form__label" for="phone">Phone (with country code)</label>
+          <input class="contact-form__input" type="tel" id="phone" name="phone">
+        </div>
+        <div class="contact-form__group">
+          <label class="contact-form__label" for="message">Message</label>
+          <textarea class="contact-form__textarea" id="message" name="message" required></textarea>
+        </div>
+        <button class="contact-form__submit" type="submit">Send enquiry →</button>
+      </form>
+      <div class="contact-form__success" id="form-success">Thanks — I'll be in touch soon.</div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <span>wittenberg.studio</span>
+  <span>&copy; 2026</span>
+</footer>
+
+<script>
+(function(){
+  var io = new IntersectionObserver(function(ee){
+    ee.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, {threshold: 0.06});
+  document.querySelectorAll('.section').forEach(function(el){ io.observe(el); });
+
+  var form = document.getElementById('contact-form');
+  var success = document.getElementById('form-success');
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var data = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(function(r){
+        if(r.ok){
+          form.style.display = 'none';
+          success.style.display = 'block';
+        } else {
+          alert('Something went wrong — please try emailing directly instead.');
+        }
+      }).catch(function(){
+        alert('Something went wrong — please try emailing directly instead.');
+      });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
